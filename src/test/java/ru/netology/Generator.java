@@ -1,34 +1,26 @@
 package ru.netology;
 
+import com.github.javafaker.Faker;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
-import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.BeforeAll;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-
-import static io.restassured.RestAssured.given;
+import java.util.Locale;
 
 
 public class Generator {
     public static String getLogin() {
-        List<String> givenList = Arrays.asList("vasya", "honor", "samsa");
-        Random rand = new Random();
-        String randomElement = givenList.get(rand.nextInt(givenList.size()));
-        return randomElement;
+        Faker faker = new Faker(new Locale("en"));
+        return faker.name().username();
     }
 
     public static String getPassword() {
-        List<String> givenList = Arrays.asList("12345", "54321", "777666");
-        Random rand = new Random();
-        String randomElement = givenList.get(rand.nextInt(givenList.size()));
-        return randomElement;
+        Faker faker = new Faker(new Locale("en"));
+        return faker.pokemon().name();
     }
 
 
