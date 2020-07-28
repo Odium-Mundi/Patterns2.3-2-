@@ -12,7 +12,6 @@ public class CardTest {
     @Test
     void shouldPassWhenAccountActive() {
         RegistrationDto account = Generator.active();
-        System.out.println(account.login);
         open("http://localhost:9999");
         $("[name='login']").setValue(account.getLogin());
         $("[name='password']").setValue(account.getPassword());
@@ -23,7 +22,6 @@ public class CardTest {
     @Test
     void shouldPassWhenAccountBlocked() {
         RegistrationDto account = Generator.blocked();
-        System.out.println(account.login);
         open("http://localhost:9999");
         $("[name='login']").setValue(account.getLogin());
         $("[name='password']").setValue(account.getPassword());
@@ -34,7 +32,6 @@ public class CardTest {
     @Test
     void shouldPassWhenAccountFalseLogin() {
         RegistrationDto account = Generator.falseLogin();
-        System.out.println(account.login);
         open("http://localhost:9999");
         $("[name='login']").setValue(account.getLogin());
         $("[name='password']").setValue(account.getPassword());
@@ -45,7 +42,6 @@ public class CardTest {
     @Test
     void shouldPassWhenAccountFalsePassword() {
         RegistrationDto account = Generator.falsePassword();
-        System.out.println(account.login);
         open("http://localhost:9999");
         $("[name='login']").setValue(account.getLogin());
         $("[name='password']").setValue(account.getPassword());
