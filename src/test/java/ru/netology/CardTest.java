@@ -14,8 +14,8 @@ public class CardTest {
         RegistrationDto account = Generator.active();
         System.out.println(account.login);
         open("http://localhost:9999");
-        $("[name='login']").setValue(account.login);
-        $("[name='password']").setValue(account.password);
+        $("[name='login']").setValue(account.getLogin());
+        $("[name='password']").setValue(account.getPassword());
         $(byText("Продолжить")).click();
         $(withText("Личный кабинет")).waitUntil(Condition.visible, 2000);
     }
@@ -25,8 +25,8 @@ public class CardTest {
         RegistrationDto account = Generator.blocked();
         System.out.println(account.login);
         open("http://localhost:9999");
-        $("[name='login']").setValue(account.login);
-        $("[name='password']").setValue(account.password);
+        $("[name='login']").setValue(account.getLogin());
+        $("[name='password']").setValue(account.getPassword());
         $(byText("Продолжить")).click();
         $(withText("Пользователь заблокирован")).waitUntil(Condition.visible, 2000);
     }
@@ -36,8 +36,8 @@ public class CardTest {
         RegistrationDto account = Generator.falseLogin();
         System.out.println(account.login);
         open("http://localhost:9999");
-        $("[name='login']").setValue(account.login);
-        $("[name='password']").setValue(account.password);
+        $("[name='login']").setValue(account.getLogin());
+        $("[name='password']").setValue(account.getPassword());
         $(byText("Продолжить")).click();
         $(withText("Неверно указан логин или пароль")).waitUntil(Condition.visible, 2000);
     }
@@ -47,8 +47,8 @@ public class CardTest {
         RegistrationDto account = Generator.falsePassword();
         System.out.println(account.login);
         open("http://localhost:9999");
-        $("[name='login']").setValue(account.login);
-        $("[name='password']").setValue(account.password);
+        $("[name='login']").setValue(account.getLogin());
+        $("[name='password']").setValue(account.getPassword());
         $(byText("Продолжить")).click();
         $(withText("Неверно указан логин или пароль")).waitUntil(Condition.visible, 2000);
     }
