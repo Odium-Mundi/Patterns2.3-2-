@@ -9,6 +9,16 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class CardTest {
 
+    @BeforeAll
+    static void setUpAll() {
+      SelenideLogger.addListener("allure", new AllureSelenide());
+    }
+
+    @AfterAll
+    static void tearDownAll() {
+      SelenideLogger.removeListener("allure");
+    }
+    
     @Test
     void shouldPassWhenAccountActive() {
         RegistrationDto account = Generator.active();
